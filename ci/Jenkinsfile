@@ -1,0 +1,13 @@
+pipeline {
+	agent any
+
+	stages{
+		stage('first-build'){
+			steps{
+				sh 'echo first-build start'
+				sh 'npm --version'
+			}
+		}
+	}
+
+}
