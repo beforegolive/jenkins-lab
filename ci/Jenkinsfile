@@ -21,7 +21,7 @@ pipeline {
 		stage('Test'){
 			steps{
 				sh 'echo Testing...'
-				echo "*** test-stage envA:${envA}, envB:${envB}"
+				sh "echo *** test-stage envA:${envA}, envB:${envB} || true"
 			}
 		}
 		stage('Deploy'){
