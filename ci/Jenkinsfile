@@ -1,17 +1,27 @@
 pipeline {
 	agent any
 
+	environment {
+		envA = 'env-in-pipeline'
+	}
+
 	stages{
 		stage('first-build'){
+			environment {
+				envB = 'env-in-stage-build'
+			}
+
 			steps{
 				sh 'echo first-build start'
 				sh 'npm --version'
 				echo "*** Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
+				echo "*** build-stage envA:${envA}, envB:${envB}"
 			}
 		}
 		stage('Test'){
 			steps{
 				sh 'echo Testing...'
+				echo "*** test-stage envA:${envA}, envB:${envB}"
 			}
 		}
 		stage('Deploy'){
