@@ -22,6 +22,7 @@ pipeline {
 				echo "*** build-stage envA:${envA}, envB:${envB}"
 
 				echo "${params.Greeting} World"
+				echo "paramString1: ${params.paramString1}"
 			}
 		}
 		stage('Test'){
