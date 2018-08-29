@@ -38,4 +38,21 @@ pipeline {
 		}
 	}
 
+	post {
+		always{
+			echo '==== post-always ==='
+		}
+		failure{
+			echo '==== post-failure ==='
+		}
+		unstable{
+			echo '==== post-unstable ==='
+		}
+		success{
+			echo '==== post-success ==='
+		}
+		changed{
+			echo '==== post-changed ==='
+		}
+	}
 }
