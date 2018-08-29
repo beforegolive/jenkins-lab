@@ -5,6 +5,10 @@ pipeline {
 		envA = 'env-in-pipeline'
 	}
 
+	parameters {
+		string(name:'Greeting', defaultValue:'Hello', description:'my first param in pipeline')
+	}
+
 	stages{
 		stage('first-build'){
 			environment {
@@ -16,6 +20,8 @@ pipeline {
 				sh 'npm --version'
 				echo "*** Running ${env.BUILD_ID} on ${env.JENKINS_URL}"
 				echo "*** build-stage envA:${envA}, envB:${envB}"
+
+				echo "${params.Greeting} World"
 			}
 		}
 		stage('Test'){
